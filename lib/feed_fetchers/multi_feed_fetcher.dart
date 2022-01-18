@@ -31,7 +31,12 @@ class MultiFeedFetcher extends ChangeNotifier {
   _updateItems(RSSFetcher fetcher) {
     if (fetcher.success) {
       items.addAll(fetcher.feed.items ?? []);
-      items.sort((a, b) => b.pubDate!.compareTo(a.pubDate!));
+
+      items.sort((a, b) {
+        if (a.pubDate == null) return 1;
+        if (b.pubDate == null) return -1;
+        return b.pubDate!.compareTo(a.pubDate!);
+      });
       notifyListeners();
     }
   }
