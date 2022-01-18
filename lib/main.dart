@@ -8,14 +8,6 @@ void main() {
   runApp(const MyApp());
 }
 
-Future<void> openWeb(String url) async {
-  if (await canLaunch(url)) {
-    await launch(url, forceWebView: true);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
