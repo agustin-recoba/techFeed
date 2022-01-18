@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../feed_fetchers/fetcher.dart';
-import 'feed_card.dart';
+import 'card/feed_card.dart';
 
 class FeedWidget extends StatelessWidget {
   final String source;
@@ -31,14 +31,12 @@ class FeedWidget extends StatelessWidget {
       body: AnimatedBuilder(
           animation: _fetcher,
           builder: (context, snapshot) {
-            return _fetcher.success
+            return _fetcher.success && _fetcher.feed.items != null
                 ? ListView.builder(
                     shrinkWrap: true,
-                    itemCount: _fetcher.feed.items!.length,
+                    itemCount: _fetcher.feed.items?.length,
                     itemBuilder: (context, index) {
-                      return FeedCard(
-                        _fetcher.feed.items![index],
-                      );
+                      return FeedCard(_fetcher.feed.items![index]);
                     },
                   )
                 : const Center(child: CircularProgressIndicator());

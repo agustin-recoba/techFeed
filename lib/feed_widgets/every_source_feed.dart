@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:techfeed/feed_fetchers/multi_feed_fetcher.dart';
 
-import 'feed_card.dart';
+import 'card/feed_card.dart';
 
 class MultiFeedWidget extends StatelessWidget {
   final List<String> sources;
@@ -27,6 +27,7 @@ class MultiFeedWidget extends StatelessWidget {
           animation: animation,
           builder: (context, child) {
             return ListView.builder(
+              shrinkWrap: true,
               itemCount: animation.items.length,
               itemBuilder: (context, index) {
                 return FeedCard(
