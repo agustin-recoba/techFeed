@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'feed_widgets/every_source_feed.dart';
 import 'feed_widgets/single_source_feed.dart';
@@ -35,13 +34,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Map<String, String> sources = {
     "Wired": "https://www.wired.com/feed/",
-    "Techcrunch": "http://techcrunch.com/feed/",
+    "Techcrunch": "https://techcrunch.com/feed/",
     "The-Next-Web": "https://thenextweb.com/feed/",
     "Engadget": "https://www.engadget.com/rss.xml",
     "Mashable": "https://mashable.com/feed/",
-    "The-Guardian-UK": "https://www.theguardian.com/uk/rss",
     "The-Guardian-US": "https://www.theguardian.com/us/rss",
-    "The-Guardian-AU": "https://www.theguardian.com/au/rss",
+    "NASA": "https://www.nasa.gov/rss/dyn/breaking_news.rss",
   };
 
   @override
@@ -82,6 +80,7 @@ class _HomePageState extends State<HomePage> {
                             onPressed: () {
                               setState(() {
                                 sources[title] = url;
+                                Navigator.pop(context);
                               });
                             },
                             child: const Text('Add'))
