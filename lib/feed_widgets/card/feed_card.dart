@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:techfeed/feed_widgets/card/advanced_card.dart';
 import 'package:techfeed/feed_widgets/card/thumbnail_widget.dart';
-import 'package:html/parser.dart';
 import 'package:webfeed/webfeed.dart';
 
 import '../../helper_functions.dart';

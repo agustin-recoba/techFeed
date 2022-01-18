@@ -1,11 +1,6 @@
 import 'dart:async';
-import 'dart:html';
-import 'dart:ui' as ui;
-
-import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'package:flutter/material.dart';
-import 'package:webfeed/domain/rss_enclosure.dart';
 import 'package:webfeed/webfeed.dart';
 
 class ThumbnailsWidget extends StatefulWidget {
