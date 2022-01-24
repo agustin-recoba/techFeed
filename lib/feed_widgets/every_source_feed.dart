@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:techfeed/feed_fetchers/multi_feed_fetcher.dart';
+import 'package:techFeed/feed_fetchers/multi_feed_fetcher.dart';
 
 import 'card/feed_card.dart';
 

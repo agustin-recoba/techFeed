@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:techfeed/feed_widgets/card/advanced_card.dart';
-import 'package:techfeed/feed_widgets/card/thumbnail_widget.dart';
 import 'package:webfeed/webfeed.dart';
 
 import '../../helper_functions.dart';
+import 'advanced_card.dart';
+import 'thumbnail_widget.dart';
 
 class FeedCard extends StatelessWidget {
   final RssItem item;

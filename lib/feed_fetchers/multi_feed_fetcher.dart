@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:techfeed/feed_fetchers/fetcher.dart';
 import 'package:webfeed/domain/rss_item.dart';
+
+import 'fetcher.dart';
 
 class MultiFeedFetcher extends ChangeNotifier {
   late List<String> sources;
