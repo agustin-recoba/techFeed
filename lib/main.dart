@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:techFeed/persistent_sources.dart';
 
 import 'feed_widgets/every_source_feed.dart';
 import 'feed_widgets/single_source_feed.dart';
@@ -32,18 +33,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Map<String, String> sources = {
-    "Wired": "https://www.wired.com/feed/",
-    "Techcrunch": "https://techcrunch.com/feed/",
-    "The-Next-Web": "https://thenextweb.com/feed/",
-    "Engadget": "https://www.engadget.com/rss.xml",
-    "Mashable": "https://mashable.com/feed/",
-    "The-Guardian-US": "https://www.theguardian.com/us/rss",
-    "NASA": "https://www.nasa.gov/rss/dyn/breaking_news.rss",
-  };
-
   @override
   Widget build(BuildContext context) {
+    Map<String, String> sources = Sources.sourcesMap;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -80,6 +72,7 @@ class _HomePageState extends State<HomePage> {
                             onPressed: () {
                               setState(() {
                                 sources[title] = url;
+                                Sources.setSources(sources);
                                 Navigator.pop(context);
                               });
                             },
@@ -117,6 +110,7 @@ class _HomePageState extends State<HomePage> {
               var entry = entries.removeAt(oldIndex);
               entries.insert(newIndex, entry);
               sources = Map.fromEntries(entries);
+              Sources.setSources(sources);
             });
           },
           children: [
@@ -130,6 +124,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     setState(() {
                       sources.remove(key);
+                      Sources.removeSource(key);
                     });
                   },
                 ),
