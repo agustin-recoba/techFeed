@@ -13,9 +13,10 @@ const Map<String, String> _predefinedSources = {
 };
 
 class Sources {
+  static SharedPreferences? _prefsInstance;
+
   static Future<SharedPreferences> get _instance async =>
       _prefsInstance ??= await SharedPreferences.getInstance();
-  static SharedPreferences? _prefsInstance;
 
   // call this method from iniState() function of mainApp().
   static Future<SharedPreferences?> init() async {
@@ -32,13 +33,15 @@ class Sources {
       setSources(newMap);
       return newMap;
     } else {
-      return json.decode(sources).cast<String, String>() ?? {};
+      var decoded = json.decode(sources).cast<String, String>() ?? {};
+      return decoded;
     }
   }
 
   static Future<bool> setSources(Map<String, String> sources) async {
     var prefs = await _instance;
-    return prefs.setString('sources', json.encode(sources));
+    var encoded = json.encode(sources);
+    return prefs.setString('sources', encoded);
   }
 
   static Future<bool> addSource(String key, String value) async {
@@ -51,9 +54,5 @@ class Sources {
     Map<String, String> sources = sourcesMap;
     sources.remove(key);
     return setSources(sources);
-  }
-
-  static void printSources() {
-    print(sourcesMap);
   }
 }

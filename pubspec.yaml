@@ -1,5 +1,5 @@
-name: techFeed
-description: Simple app to read tech related news.
+name: tech_feed
+description: Simple flutter app to read tech related news.
 
 
 publish_to: 'none'

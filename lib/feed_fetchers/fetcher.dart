@@ -13,6 +13,10 @@ class RSSFetcher extends ChangeNotifier {
     fetch();
   }
 
+  void notify() {
+    notifyListeners();
+  }
+
   RssFeed get feed => _feed;
 
   Future<void> fetch() async {

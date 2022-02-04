@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:techFeed/persistent_sources.dart';
 
 import 'feed_widgets/every_source_feed.dart';
 import 'feed_widgets/single_source_feed.dart';
+import 'persistent_sources.dart';
 
-void main() {
+void main() async {
+  await Sources.init();
   runApp(const MyApp());
 }
 
