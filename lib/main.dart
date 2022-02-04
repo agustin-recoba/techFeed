@@ -5,6 +5,7 @@ import 'feed_widgets/single_source_feed.dart';
 import 'persistent_sources.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Sources.init();
   runApp(const MyApp());
 }
